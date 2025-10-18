@@ -93,7 +93,7 @@ const server = http.createServer(async (req, res) => {
     }
     
     // Serve f.html as the main page
-    if (pathname === '/' || pathname === '/f.html') {
+    if (pathname === '/' || pathname === '/l.html') {
         serveFPage(res);
         return;
     }
@@ -135,7 +135,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 function serveFPage(res) {
-    const filePath = path.join(__dirname, 'f.html');
+    const filePath = path.join(__dirname, 'l.html');
     fs.readFile(filePath, (err, data) => {
         if (err) {
             res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -464,5 +464,6 @@ process.on('SIGINT', async () => {
     }
     process.exit(0);
 });
+
 
 startServer().catch(console.error);
